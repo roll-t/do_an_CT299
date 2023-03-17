@@ -1,0 +1,105 @@
+
+*{
+    color:white;
+    user-select: none;
+}
+header{
+    color:white;
+    display: flex;
+    justify-content: center;
+    padding:20px;
+    font-size: 50px;
+    font-weight: 700;
+    border: 2px solid #6b6767;
+    border-radius: 10px;
+    margin-inline:10px ;
+    margin-top: 10px;
+    background:#333;
+}
+.warp{
+    display:flex;
+    padding:10px;
+}
+.top{
+    padding-block :20px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    align-items: center;
+    cursor:pointer;
+}
+.top ion-icon{
+    font-size: 25px;
+    transition: .4s;
+}
+.top ion-icon:hover{
+    transform: scale(1.3);
+}
+.left-side{
+    width:20vw;
+    background:#333;
+    border-radius: 10px ;
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding:2%;
+}
+.right-side{
+    background:#eee;
+    width:80vw;
+    background:#eee;
+    margin-inline:10px;
+    border-radius: 10px;
+}
+.menu{
+    padding-left:10px;
+}
+
+.menu .menu-items{
+    width:100%;
+    border:1px solid black;
+    padding-block:20px;
+}
+.menu .menu-items p{
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.menu .menu-items .category{
+    padding-left:20px;
+    margin-top: 10px;
+    display: none;
+}
+.menu .menu-items .category.active{
+    display:block;
+}
+.menu .menu-items .category .category-items{
+    padding-block:10px;
+    cursor: pointer;
+}
+.menu .menu-items .category .category-items:hover{
+    background-color: #6b6767;
+}
+.menu .menu-items .category .category-items:active{
+    opacity: .6;
+}
+.menu input.menu-items{
+    background:white;
+    border-radius: 10px;
+    color:#333;
+    margin-left: -10px;
+    padding:5px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s;
+}
+.menu input.menu-items:hover{
+    opacity: .8;
+}
+.menu input.menu-items:active{
+    opacity: .3;
+}
+
+.confirm-input{
+    margin: 10px;
+}

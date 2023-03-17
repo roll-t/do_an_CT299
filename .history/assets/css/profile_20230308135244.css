@@ -1,0 +1,242 @@
+
+
+.container-profile{
+    padding-block:50px;
+    display: grid;
+    grid-template-columns: 2.5fr 8fr;
+    padding-inline:10%;
+    grid-column-gap: 5%;
+    background-color:#eeeeee84;
+}
+.container-profile .left-profile{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height:75vh;
+    overflow-y: scroll;
+}
+.container-profile .left-profile .head{
+    gap:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-profile .left-profile .head .avata{
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+.container-profile .left-profile .head .avata .img{
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container-profile .left-profile .head .name h4{
+    font-size: 20px;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+.container-profile .left-profile .head .name p{
+    margin-top: 5px;
+    display:flex;
+    align-items: center;
+    color:#929191;
+    transition: .1s;
+    cursor: pointer;
+    gap:5px;
+}
+.container-profile .left-profile .head .name p:active{
+    color:black;
+
+}
+.container-profile .left-profile .head .name p ion-icon{
+    transform: rotateY(180deg) rotateZ(-10deg);
+}
+.container-profile .left-profile .body{
+    margin-top: 30px;
+    padding-top:10px;
+    width:100%;
+}
+.container-profile .left-profile .items-profile{
+    display:grid;
+    grid-template-areas:'h1 h2 h2' 'h3 h3 h3' ;
+    font-size: 17px;
+    justify-content: start;
+    align-items: center;
+    grid-column-gap: 10px;
+    cursor: pointer ;
+    padding-bottom:10px;
+}
+.container-profile .left-profile .items-profile ion-icon{
+    grid-area: h1;
+    font-size: 20px;
+}
+.container-profile .left-profile .items-profile p{
+    display:inline-block;
+    margin-right:auto;
+    justify-items: start;
+    grid-area: h2;
+    font-weight: 500 ;
+}
+.container-profile .left-profile .items-profile p:active {
+    background-color: #33333345;
+}
+.container-profile .left-profile .items-profile ul{
+    display:none;
+    padding-block:10px;
+    grid-area: h3;
+}
+.container-profile .left-profile .items-profile ul.active{
+    display: block;
+}
+.container-profile .left-profile .items-profile ul li{
+    padding-left:30px;
+}
+.container-profile .left-profile .items-profile ul li a{
+    color:#333;
+}
+.container-profile .left-profile .items-profile ul li:hover{
+    background:#33333337;
+}
+.container-profile .right-profile{
+    margin-top: -40px;
+    width:115%;
+}
+.container-profile .right-profile .header-right{
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.114);
+}
+.container-profile .right-profile .header-right .menu{
+    display:flex;
+}
+.container-profile .right-profile .header-right .menu .menu-item{
+    border-left:1px solid rgba(0, 0, 0, 0.132);
+    border-right:1px solid rgba(0, 0, 0, 0.132);
+    text-align: center;
+    padding-block:20px;
+    flex-basis: 20%;
+}
+.container-profile .right-profile .header-right .menu .menu-item:hover{
+    background: rgba(232, 230, 230, 0.308);
+}
+.container-profile .right-profile .header-right .menu .menu-item a{
+    font-size: 18px;
+    color:black;
+}
+.container-profile .right-profile .container-right{
+    background: white;
+    height:70vh;
+    margin-top: 10px;
+    overflow-y: scroll;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.114);
+}
+.container-profile .right-profile .items-right-profile{
+    display:none;
+}
+.container-profile .right-profile .items-right-profile.active{
+    display:block;
+}
+.container-profile .right-profile .my-profile{
+    height: 80vh;
+    overflow-y: scroll;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.114);
+}
+.container-profile .right-profile .my-profile .head{
+    padding-inline:5%;
+    padding-block:5px;
+    border-bottom:1px solid rgba(128, 128, 128, 0.247);
+}
+
+.container-profile .right-profile .my-profile .head h4{
+    font-size: 25px;
+    font-weight: 500;
+    padding-block:5px;
+}
+
+.container-profile .right-profile .my-profile .head p{
+    font-size: 15px;
+    color:rgba(0, 0, 0, 0.566);
+    padding-bottom:5px;
+}
+
+.container-profile .right-profile .my-profile .container-my-profile{
+    display:grid;
+    grid-template-columns:7fr 3fr;
+    padding-inline:5%;
+    margin-block:25px;
+}
+.container-profile .right-profile .my-profile .container-my-profile .group-input{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block:10px;
+    padding-right:10%;
+}
+.container-profile .right-profile .my-profile .container-my-profile .group-input.gender{
+    display:flex;
+    align-items: center;
+    padding-right:30%;
+}
+.container-profile .right-profile .my-profile .container-my-profile .group-input.gender p label{
+    margin-right:10px;
+}
+.container-profile .right-profile .my-profile .container-my-profile .group-input.gender p input{
+    margin-right:30px;
+}
+.container-profile .right-profile .my-profile .container-my-profile .group-input input,textarea ,select{
+    flex-basis: 70%;
+    padding-block:10px;
+}
+.container-profile .right-profile .my-profile .container-my-profile .left .confrim-info{
+    display:flex;
+    justify-content: start;
+    padding-block:20px;
+}
+.container-profile .right-profile .my-profile .container-my-profile .left .confrim-info input{
+    padding:8px 30px;
+    font-size: 15px;
+    cursor: pointer;
+    color:white;
+    border:none;
+    background: black;
+    font-weight: 500;
+}
+.container-profile .right-profile .my-profile .container-my-profile .left .confrim-info input:active{
+    opacity: .5;
+}
+
+
+.container-profile .right-profile .my-profile .right .avata{
+    padding-inline:10%; 
+    gap:20px;
+    padding-top:100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-profile .right-profile .my-profile .right .avata p{
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    padding-block:10px;
+    padding-inline:10%;
+}
+.container-profile .right-profile .my-profile .right .avata .img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100rem;
+}
