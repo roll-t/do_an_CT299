@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+img {
+    width: 100%;
+    object-fit: contain;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+body {
+    background-color: rgb(222, 219, 219);
+}
+.room-container {
+    display: grid;
+    width: 85%;
+    background-color: white;
+    margin: 0 auto;
+    margin-block: 20px;
+    grid-template-rows: 6fr 3.5fr;
+    grid-gap: 30px;
+    padding: 20px;
+}
+.room-content-top{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+}
+.room-content-top-1, .room-content-top-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.room-L-content-top-1-inside {
+    height: 90%;
+    display: grid;
+    grid-template-rows:  4fr 6fr;
+}
+.room-info-1 p{
+    margin-top: 10px;
+    font-size: 10px;
+}
+.room-title{
+    width: 90%;
+    font-size: 30px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+.room-R-content-top-2-inside p {
+    font-size: 24px;
+}
+.room-content-top::after {
+    content: "Việc lựa chọn những món nội thất và hàng trí có cùng tông màu xanh tím vừa thể hiện được gu thẩm mỹ độc đáo của chủ nhà, vừa dễ dàng làm nổi bật những không gian nền đơn giản. Sự kết hợp giữa sofa Penny và bàn nước Glam nhỏ gọn, được làm từ chất liệu kim loại làm tăng tính tiện nghi, hoàn thiện chức năng tiếp khách, giải trí. Để không gian thêm phần thơ mộng, có thể đặt thêm chiếc bình hoa trang trí có thiết kế cách điệu, màu trắng trang nhã. Ngoài ra, những cành hoa trang trí, tranh vẽ mang màu sắc đồng điệu góp phần tô điểm cho vẻ đẹp hài hòa của toàn bộ không gian.";
+    font-size: 24px;
+}
+.room-content-bottom {
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.room-L-content-bottom, .room-R-content-bottom{
+    display: grid;
+    grid-template-rows: 8fr 2fr;
+}
+.room-L-content-bottom ul li, .room-R-content-bottom ul li{
+    margin-top: 20px;
+    font-size: 24px;
+}
+.wrapper{
+    background: white;
+}

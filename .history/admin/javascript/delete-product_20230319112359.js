@@ -1,0 +1,1 @@
+const wrap_delete=$(".delete-confirm .make-delete")
