@@ -26,7 +26,7 @@
                 $uploadOk=false;
             }
             // check dung luong don vi kb
-            if($_FILES[$value]['size']>500000){
+            if($_FILES[$value]['size']>1000000){
                 echo "hinh wa bu";
                 $uploadOk=false;
             }
