@@ -89,7 +89,7 @@ function add_detail(){
             }
             return $arr_img_des;
         }
-      
+        $img_upload=false;
         $arr_img_des=render_arr_img();
         for($i=0;$i<count($arr_img_des);$i++){
                 if($arr_img_des[$i]==" "){
@@ -102,6 +102,7 @@ function add_detail(){
                     }
             }
         }
+
         $list_img_des=$img_upload?implode(",",$arr_img_des):false;
 
         if($upload_detail_ok &&  $list_img_des){
