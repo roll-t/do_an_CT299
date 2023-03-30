@@ -1,1 +1,0 @@
-const rooms_hidden=document.querySelector("")

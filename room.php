@@ -259,5 +259,5 @@
 <script src="./assets/javascript/slide-2-banner.js"></script>
 <script src="./assets/javascript/sticky-header.js"></script>
 <script src="./assets/javascript/cart.js"></script>
-
+<script src="./assets/javascript/to-room-detail.js"></script>
 </html>

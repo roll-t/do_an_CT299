@@ -1,1 +1,0 @@
-document.querySelectorAll(".delete-confirm")

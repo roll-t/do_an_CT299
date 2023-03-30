@@ -11,230 +11,83 @@ include './head.php';
             include './header.php';
             ?>
         </header>
-        <div class="body-checkout">
-            <div class="left-checkout">
-                <h3 class="title">ĐỊA CHỈ GIAO HÀNG</h3>
-                <form class="form-input" action="#">
-                    <div class="input-group">
-                        <span>Họ Và Tên</span>
-                        <input type="text" placeholder="Nhập Họ Và Tên">
-                    </div>
-                    <div class="input-group">
-                        <span>Số Điện Thoại</span>
-                        <input type="text" placeholder="Nhập Số Điện Thoại">
-                    </div>
-                    <div class="input-group">
-                        <span>Địa Chỉ Email</span>
-                        <input type="text" placeholder="Nhập Địa Chỉ Email">
-                    </div>
-                    <div class="input-group">
-                        <span>Tỉnh / Thành Phố</span>
-                        <input type="text" placeholder="Nhập Tỉnh/Thành phố">
-                    </div>
-                    <div class="input-group">
-                        <span>Quận / Huyện</span>
-                        <input type="text" placeholder="Nhập Quận/Huyện">
-                    </div>
-                    <div class="input-group">
-                        <span>Địa Chỉ</span>
-                        <input type="text" placeholder="Nhập Địa Chỉ">
-                    </div>
-                </form>
-                <div class="more-info">
-                    <div class="create-account">
-                        <input type="checkbox">
-                        <p>Create an account?</p>
-                    </div>
-                    <h3 class="title">THÔNG TIN THÊM</h3>
-                    <h4 class="note">Lưu ý cho đơn hàng (tuỳ chọn)</h4>
-                    <textarea class="comment" name="" id="" cols="30" rows="10" placeholder="Viết các lưu ý cho đơn hàng của bạn: vd....."></textarea>
-                </div>
-                <div class="pay">
-                    <h3 class="title">PHƯƠNG THỨC THANH TOÁN</h3>
-                    <ul class="list-pay">
-                        <li class="items-pay">
-                            <ion-icon name="cash-outline"></ion-icon>
-                            <p>Thanh Toán Khi Nhận Hàng</p>
-                        </li>
-                        <li class="items-pay">
-                            <ion-icon name="journal-outline"></ion-icon>
-                            <p>Chuyển Khoản Ngân Hàng</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="right-checkout">
-                <h3 class="title">Tóm Tắt Đơn Hàng</h3>
-           
-                <div class="product-bill">
-                    <h3 class="title">Sản Phẩm</h3>
-                    <?php
-                    if(isset($_GET["id_product"])){
-                        $quantity_product=$_GET["quantity_product"];
-                        $id_product=$_GET["id_product"];
-                        $value_product=select_value("SELECT * FROM SANPHAM WHERE SP_ID=$id_product");
-                        $name_product=$value_product["SP_TEN"];
-                        $price_product=$value_product["SP_GIA"];
-                        $img_product=$value_product["SP_IMG_1"];
-                        $total_price=$price_product * $quantity_product;
-                    echo
-                    '<div class="body-bill">
-                    <li class="bill-items">
-                        <p>Thành Tiền</p><span>'.number_format($total_price).'</span><p>đ</p>
-                    </li>
-                    <li class="bill-items">
-                        <p>Vận Chuyển</p><span>Liên hệ phí vận chuyển sau</span>
-                    </li>
-                    <li class="bill-items">
-                        <p>Tổng Cộng</p><span>'.number_format($total_price).'</span><p>đ</p>
-                    </li>
-                    </div>';
-                    echo '
-                    <div class="list-product-bill">
-                        <li class="items-bill">
-                        <div class="left">
-                            <img src="'.$img_product.'" alt="">
-                        </div>
-                        <div class="center">
-                            <div class="name-product">
-                                '.$name_product.'
-                            </div>
-                            <span>X'.$quantity_product.'</span>
-                        </div>
-                        <div class="right">
-                            <span>'.number_format($price_product).'</span><p>đ</p>
-                        </div>
-                    </li>';
-
+        <?php 
+        if(isset($_GET["order"])){
+            $id_client=explode(",",$_COOKIE["account_homedesign"])[0];
+            if(is_array(json_decode($_GET["order"],true))){
+                $arr_order=json_decode($_GET["order"],true);
+                $name_client=$arr_order[0];
+                $format_date = "d/m/y";
+                $date= date($format_date, time());
+                $tinh=select_value("SELECT * FROM TINH where T_ID=$arr_order[2]")["T_TEN"];
+                $huyen=select_value("SELECT * FROM HUYEN where H_ID=$arr_order[3]")["H_TEN"];
+                $main_address=$arr_order[1]."/".$huyen."/".$tinh;
+                $phone=$arr_order[4];
+                $sql ="INSERT INTO `don_dat_hang` (`DDH_ID`, `KH_ID`, `DDH_NGAYDAT`, `DDH_GHICHU`, `DDH_SDT`, 
+                `DDH _DIACHI`, `DDH_TENKH`)
+                 VALUES (NULL, '".$id_client."', '".$date."', '', '".$phone."', '".$main_address."', '".$name_client."')";
+                          $result=$conn->query($sql);
+                          if($result){
+                              $list_order=select_value_all("SELECT DDH_ID FROM DON_DAT_HANG WHERE KH_ID=$id_client");
+                              $index_id=count($list_order)-1;
+                              $id_order=$list_order[$index_id][0];
+                              $arr_order_items=json_decode($_GET["list_product"],true);
+                              foreach($arr_order_items as $items){
+                              $sql_order="INSERT INTO `chitiet_ddh` (`SP_ID`, `DDH_ID`, `CDDH_SOLUONG`, 
+                              `CDDH_DONGIA`, `CDDH_ID`,`CDDH_TENSP`) 
+                              VALUES ('".$items[3]."', '".$id_order."', '".$items[1]."', '".$items[2]."', NULL ,'".$items[0]."')";
+                              $result_item_order=$conn->query($sql_order);
+                              }
+                          }
+                }else{
+                $id_address=$_GET["order"];
+                $info_address=select_value("SELECT * FROM diachi where DC_ID=$id_address");
+                $name_client=$info_address["KH_TEN"];
+                $id_tinh=$info_address["T_ID"];
+                $id_huyen=$info_address["H_ID"];
+                $format_date = "d/m/y";
+                $date= date($format_date, time());
+                $tinh=select_value("SELECT * FROM TINH where T_ID=$id_tinh")["T_TEN"];
+                $huyen=select_value("SELECT * FROM HUYEN where H_ID=$id_huyen")["H_TEN"];
+                $des_address=$info_address["DC_MOTA"];
+                $phone_number=select_value("SELECT KH_SDT FROM KHACHHANG WHERE KH_ID=$id_client")["KH_SDT"];
+                $sql ="INSERT INTO `don_dat_hang` (`DDH_ID`, `KH_ID`, `DDH_NGAYDAT`, `DDH_GHICHU`, `DDH_SDT`, 
+                `DDH _DIACHI`, `DDH_TENKH`)
+                 VALUES (NULL, '".$id_client."', '".$date."', '', '".$phone_number."', '".$des_address."/".$huyen."/".$tinh."', '".$name_client."')";
+                $result=$conn->query($sql);
+                if($result){
+                    $list_order=select_value_all("SELECT DDH_ID FROM DON_DAT_HANG WHERE KH_ID=$id_client");
+                    $index_id=count($list_order)-1;
+                    $id_order=$list_order[$index_id][0];
+                    $arr_order_items=json_decode($_GET["list_product"],true);
+                    foreach($arr_order_items as $items){
+                    $sql_order="INSERT INTO `chitiet_ddh` (`SP_ID`, `DDH_ID`, `CDDH_SOLUONG`, 
+                    `CDDH_DONGIA`, `CDDH_ID`,`CDDH_TENSP`) 
+                    VALUES ('".$items[3]."', '".$id_order."', '".$items[1]."', '".$items[2]."', NULL ,'".$items[0]."')";
+                    $result_item_order=$conn->query($sql_order);
                     }
-                    ?>
-                        
-                    </div>
-                    <div class="baohanh">
-                        <h3 class="title">Chính Sách Bảo Hành</h3>
-                        <div class="text">
+                }
+            }
+            include './checkout/order-success.php';
 
-                        </div>
-                    </div>
-                    <div class="confirm-baohanh">
-                        
-                        <p><input type="checkbox">Tôi đã đọc và đồng ý điều kiện đổi trả hàng, giao hàng, chính sách bảo mật, điều khoản dịch vụ mua hàng online * </p>
-                    </div>
-                    <div class="btn-confirm">
-                        ĐẶT MUA
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div  class="body-6">
-            <ul class="list-client">
-                <li class="clients">
-                    <img src="./images/clients/c1.png" alt="">
-                </li>
-                <li class="clients">
-                    <img src="./images/clients/c2.png" alt="">
-                </li>
-                <li class="clients">
-                    <img src="./images/clients/c3.png" alt="">
-                </li>
-                <li class="clients">
-                    <img src="./images/clients/c4.png" alt="">
-                </li>
-                <li class="clients">
-                    <img src="./images/clients/c5.png" alt="">
-                </li>
-            </ul>
-        </div>
-        <div id="contact" class="body-7">
-            <div class="list-contact">
-                <div class="list-contact-items">
-                    <li class="items-contact title">
-                        Information 
-                    </li>
-                    <li class="items-contact"><a href="#">
-                        About Us
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Contact Us
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        News
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Store
-                    </a></li>
-                </div>
-                <div class="list-contact-items">
-                    <li class="items-contact title">
-                        Collections
-                    </li>
-                    <li class="items-contact"><a href="#">
-                        Wooden Chair
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Royal Cloth Sofa
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Accent Chair
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Bed
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Hanging Lamp
-                    </a></li>
-                </div>
-                <div class="list-contact-items">
-                    <li class="items-contact title">
-                        My Accounts
-                    </li>
-                    <li class="items-contact"><a href="#">
-                        My Account
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Wishlist
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Community
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        Order History
-                    </a></li>
-                    <li class="items-contact"><a href="#">
-                        My Cart
-                    </a></li>
-                </div>
-                <div class="list-contact-items">
-                    <li class="items-contact title">
-                        Newsletter
-                    </li>
-                    <li class="items-contact"><a href="#">
-                        Subscribe to get latest news,update and information
-                    </a></li>
-                    <li class="items-contact">
-                        <div class="letter">
-                            <input class="input-letter" type="text" placeholder="Enter Email Here...">
-                            <ion-icon name="send"></ion-icon>
-                        </div>
-                    </li>
-                </div>
-            </div>
-        </div>
-        <footer class="footer">
-            <div class="list-icon">
-                <li class="icon-items"><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                <li class="icon-items"><a href="#"><ion-icon name="logo-pinterest"></ion-icon></a></li>
-                <li class="icon-items"><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                <li class="icon-items"><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                <li class="icon-items"><a href="#"><ion-icon name="logo-behance"></ion-icon></a></li>
-            </div>
-            <div class="text">©Copyright. Designed And Developed By Themesine</div>
-        </footer>
+        }else{
+            include './checkout/body-checkout.php';
+        }
+        include './footer.php';
+
+        ?>
     </div>
 </body>
+<?php 
+if(!isset($_GET["order"])){
+    echo '<script src="./checkout/js/validate-checkout.js"></script>';
+}
+?>
 <script src="./assets/javascript/show-search.js"></script>
 <script src="./assets/javascript/sticky-header.js"></script>
 <script src="./assets/javascript/cr-menu-item.js"></script>
 <script src="./assets/javascript/show-left-meu.js"></script>
 <script src="./assets/javascript/cart.js"></script>
+<script src="./assets/javascript/info-checkout.js"></script>
+<script src="./checkout/js/select-address.js"></script>
 </html>

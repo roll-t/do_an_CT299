@@ -318,6 +318,9 @@
     font-weight: bold;
     display: none;
 }
+.header .body-cart .main-cart .checkout.active{
+    display:block;
+}
 .header .body-cart .main-cart .checkout:active{
     opacity: .5;
     transform: scale(1.1);

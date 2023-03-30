@@ -104,7 +104,7 @@ $quantity_cart=0;
                             foreach($arr_product_cart as $key=>$items){
                                 echo'
                                 <li class="product-cart-items">
-                                <input type="checkbox" class="check-confirm">
+                                <input type="checkbox" value="'.$items[0].'" class="check-confirm">
                                 <div class="left-item">
                                     <img src="'.$items[1].'" alt="">
                                 </div>

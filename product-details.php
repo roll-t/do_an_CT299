@@ -137,7 +137,11 @@
                         <div class="btn-by-now">
                             <?php
                         echo '    <input value="'.$id_product.'" type="hidden" class="id_checkout_product">';
-                        echo '<a class="btn_by_now" style="color:white;" href="./checkout.php?id_product='.$id_product.'&quantity_product=1">Mua Ngay</a>';
+                        if(isset($_COOKIE["account_homedesign"])){
+                            echo '<a class="btn_by_now" style="color:white;" href="./checkout.php?id_product='.$id_product.'&quantity_product=1">Mua Ngay</a>';
+                        }else {
+                            echo '<a style="color:white;" href="./account.php">Mua Ngay</a>';
+                        }
                         ?>
                         </div>
                             <div class="btn-add-cart">

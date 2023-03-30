@@ -103,6 +103,7 @@
                     $page_search=false;
                     $count_index=20;
                     $index=1;
+                    
                     if(isset($_GET["value_search"])){
                       $page_search=true;
                       $result_search=$_GET["value_search"];
@@ -124,8 +125,12 @@
                         echo '                            <a href="./product-details.php?id_product='.$items[0].'"><img src='.$items[6].' alt="" class="img-zoom"></a>';
                         echo '                            <div class="add-cart">';
                         echo '                                <div class="left-add">';
-                        echo '                                    <a style ="color:white;display:flex;gap:5px;" 
-                                                                  class="btn-add-cart" href="./cart/add-cart.php?id_product='.$items[0].'&img_product='.$items[5].'&name_product='.$items[3].'&price_product='.$items[4].'"><ion-icon name="cart-outline"></ion-icon>';
+                        echo '                                    <a style ="color:white;display:flex;gap:5px;"'; 
+                                                                   if(isset($_COOKIE["account_homedesign"])){
+                                                                     echo 'class="btn-add-cart" href="./cart/add-cart.php?id_product='.$items[0].'&img_product='.$items[5].'&name_product='.$items[3].'&price_product='.$items[4].'"><ion-icon name="cart-outline"></ion-icon>';
+                                                                   }else{
+                                                                    echo 'href="./account.php"><ion-icon name="cart-outline"></ion-icon>';
+                                                                   }
                         echo '                                    <p>Thêm giỏ hàng</p></a>';
                         echo '                                </div>';
                         echo '                                <div class="right-add">';
