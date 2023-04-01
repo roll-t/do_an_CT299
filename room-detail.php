@@ -3,7 +3,7 @@
   <?php include './head.php'?>
   <link rel="stylesheet" href="./assets/css/room-detail.css" />
   <link rel="stylesheet" href="./assets/css/slide-2-banner.css">
-  <link rel="stylesheet" href="./assets/css/room.css">
+ <link rel="stylesheet" href="./assets/css/room.css">
   <body>
     <div class="wrapper">
       <header class="header header-banner">
@@ -72,6 +72,75 @@
           </ul>
         </div>
       </div>
+      <h1 class="room-product-title">SẢN PHẨM TRONG PHÒNG</h1>
+      <div id="new-arrival" class="body-2 body-2-product" style ="padding-inline : 0;">
+        <ul class="list-product main-list-product">
+          <?php
+          $room_product = "SELECT * FROM sanpham WHERE `DM_ID` = 8";
+          $arr_product = $conn->query($room_product)->fetch_all();
+          function render_list_product($arr_product)
+          {
+            $count = 0;
+            
+            foreach ($arr_product as $items) {
+              if($count < 4){
+              echo '                        <li class="product-items">';
+              echo '                        <div class="top-product">';
+              echo '                           <img src=' . $items[5] . ' alt="">';
+              echo '                            <a href="./product-details.php?id_product=' . $items[0] . '"><img src=' . $items[6] . ' alt="" class="img-zoom"></a>';
+              echo '                            <div class="add-cart">';
+              echo '                                <div class="left-add">';
+              echo '                                    <a style ="color:white;display:flex;gap:5px;"';
+              if (isset($_COOKIE["account_homedesign"])) {
+                echo 'class="btn-add-cart" href="./cart/add-cart.php?id_product=' . $items[0] . '&img_product=' . $items[5] . '&name_product=' . $items[3] . '&price_product=' . $items[4] . '"><ion-icon name="cart-outline"></ion-icon>';
+              } else {
+                echo 'href="./account.php"><ion-icon name="cart-outline"></ion-icon>';
+              }
+              echo '                                    <p>Thêm giỏ hàng</p></a>';
+              echo '                                </div>';
+              echo '                                <div class="right-add">';
+              echo '                                    <ion-icon name="heart-outline"></ion-icon>';
+              echo '                                    <ion-icon name="expand-outline"></ion-icon>';
+              echo '                                </div>';
+              echo '                            </div>';
+              echo '                            <div class="texture"></div>';
+              echo '                            <div class="sale-ticker">';
+              echo '                                Sale';
+              echo '                            </div>';
+              echo '                        </div>';
+              echo '                        <div class="product-content">';
+              echo '                            <h3 class="name-product">' . $items[3] . '</h3>';
+              echo '                            <div class="product-price"><p>' . number_format($items[4]) . '</p><span>đ</span></div>';
+              echo '                        </div>';
+              echo '                    </li>';
+          }  
+           $count++; 
+        }
+      }
+          render_list_product($arr_product);
+          ?>
+        </ul>   
+      </div>
+      <h1 class="room-product-title">THAM KHẢO CÁC SẢN PHẨM TƯƠNG TỰ</h1>
+      <div id="new-arrival" class="body-2 body-2-product" style ="padding-inline : 0;">
+        <ul class="list-product main-list-product">
+          <?php
+          $room_product = "SELECT * FROM sanpham WHERE `DM_ID` = 9";
+          $arr_product = $conn->query($room_product)->fetch_all();
+          render_list_product($arr_product);
+          ?>
+        </ul>   
+      </div>
+      
+    </div>
+
+       <div class="body-find-store">
+            <div class="content">
+                <h2 class="title" data-text="Xem,Chạm Và Cảm Nhận">Xem,Chạm Và Cảm Nhận</h2>
+                <button class="btn-find"><a href="#">Tìm Cửa Hàng</a><ion-icon name="chevron-forward-outline"></ion-icon></button>
+            </div>
+        </div>
+        <?php include './footer.php' ?>
     </div>
     <a href="#top" class="go-to-top"><ion-icon name="chevron-up-outline"></ion-icon></a>
   </body>
@@ -81,4 +150,5 @@
 <script src="./assets/javascript/slide-2-banner.js"></script>
 <script src="./assets/javascript/sticky-header.js"></script>
 <script src="./assets/javascript/cart.js"></script>
+
 </html>
