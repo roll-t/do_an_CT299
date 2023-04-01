@@ -1,0 +1,93 @@
+.bc{
+    padding: 1%;
+    max-width: 25%;
+}
+.son-body2{
+    margin-left: 8%;
+    margin-top: 5%;
+    margin-bottom: 4%;
+    display: flex;
+}
+h1{
+  font-weight: 600 ;  
+}
+
+.son-body2 img{
+    width: 92%;
+    height: 92%;
+}
+.introduce-sonbody2{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+ 
+.son-body3{
+    display: flex;
+    margin-bottom: 5%;
+    
+}
+.son-body3 img{
+    margin-left: 28%;
+    width: 241%;
+    height: 98%;
+}
+.introduce-sonbody3{
+    margin-right: 2%;
+    margin-left: 34%;
+}
+
+.introduce-sonbody3 h2{
+    margin-bottom: 2%;
+}
+
+.son-body4{
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.noidungquytrinh1{
+    display: flex;
+    max-width: 1320px;
+}
+.noidungquytrinh2{
+    display: flex;
+}
+.noidungquytrinh{
+    margin: 2% 0;
+    margin-left: 11%;
+    /* text-align: center; */
+}
+
+.noidungquytrinh h2{
+    margin-bottom: 7%;
+}
+.son-body4 h1{
+    margin-top: 2%;
+    text-align: center;
+}
+.bc5{
+    padding-left: 1%;
+    padding-right: 3.5%;
+    max-width: 17%;
+}
+.bc6{
+    max-width: 22%;
+}
+.toanbo{
+    display: flex;
+}
+.i4 img{
+    margin-left: 14%;
+    width: 147%;
+}
+.i5 img{
+    margin-left: 55%;
+    width: 77.4%;
+}
+.i6 img{
+    width: 56%;
+    margin-left: 37%;
+    margin-bottom: 4.5%;
+}
+.i7 img{
+    width: 56%;
+    margin-left: 37%;
+}

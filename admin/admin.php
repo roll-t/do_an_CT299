@@ -77,8 +77,8 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 <li class="menu-items menu-kho">
                     <p>Quản Lý Đơn Đặt Hàng</p>
                     <div class="category">
-                        <div class="category-items">Tổng số đơn đặt hàng </div>
-                        <div class="category-items">Đơn đặt hàng thành công</div>
+                        <div class="category-items">Tất cả đơn</div>
+                        <div class="category-items">Đơn chưa xác nhận</div>
                         <div class="category-items">Đơn đặt đã hủy </div>
                     </div>
                 </li>
@@ -434,7 +434,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 </div>
             </from>
         </div>
-        <div class="body-add-category body-thongke active ">
+        <div class="body-add-category body-thongke  active">
             <div class="headline">
                 <div class="item">
                     <div class="top-items">
@@ -446,9 +446,22 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                     </div>
                 </div>
                 <div class="item">
+                    <?php
+                    $sql="SELECT COUNT(*) AS total FROM KHACHHANG";
+                    $count_client=$conn->query($sql)->fetch_all();
+                    $count_product=0;
+                    $arr_order_details=select_value_all("SELECT CDDH_SOLUONG FROM CHITIET_DDH");
+                    foreach($arr_order_details as $items){
+                        $count_product+=$items[0];
+                    }
+                    $sql_order="SELECT COUNT(*) AS total FROM don_dat_hang";
+                    $count_order=$conn->query($sql_order)->fetch_all();
+                    ?>
                     <div class="top-items">
                         <ion-icon name="person-circle-outline"></ion-icon>
-                        <span>5555</span>
+                        <span><?php 
+                        echo $count_client[0][0];
+                        ?></span>   
                     </div>
                     <div class="bottom-items">
                         Người dùng đăng ký
@@ -457,7 +470,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 <div class="item">
                     <div class="top-items">
                         <ion-icon name="cart-outline"></ion-icon>
-                        <span>5555</span>
+                        <span><?php echo $count_product;?></span>
                     </div>
                     <div class="bottom-items">
                         sản phẩm bán ra
@@ -466,121 +479,44 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 <div class="item">
                     <div class="top-items">
                         <ion-icon name="git-compare-outline"></ion-icon>
-                        <span>444</span>
+                        <span><?php echo $count_order[0][0];?></span>
                     </div>
                     <div class="bottom-items">
-                        Giao dịch
+                        Giao dịch thành công
                     </div>
                 </div>
             </div>
             <div class="bieudothongke">
                 <div class="title">Thống kê doanh thu</div>
-                <div class="thuocdo">
-                    <div class="item">
-                        <div class="sodo">0</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sodo">10</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sodo">20</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sodo">30</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sodo">40</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sodo">50</div>
-                        <div class="mucdo">
-                        </div>
-                    </div>
-                </div>
                 <div class="body-bieudo">
-                    <div class="item">
-                        <div class="muc" style="--i:12;"></div>
-                        <div class="thang">Một</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:1;"></div>
-                        <div class="thang">hai</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:2;"></div>
-                        <div class="thang">ba</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:1;"></div>
-                        <div class="thang">tư</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:5;"></div>
-                        <div class="thang">năm</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:7;"></div>
-                        <div class="thang">sáu</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:9;"></div>
-                        <div class="thang">bảy</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:7;"></div>
-                        <div class="thang">tám</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:1;"></div>
-                        <div class="thang">chín</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:5;"></div>
-                        <div class="thang">mười</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:1;"></div>
-                        <div class="thang">mười một</div>
-                    </div>
-                    <div class="item">
-                        <div class="muc" style="--i:3;"></div>
-                        <div class="thang">mười hai</div>
-                    </div>
+                    <?php include './revenue/render-chart.php'?>
                 </div>
+                <?php include './revenue/render-ruler.php'?>
             </div>
             <div class="doanhthu">
                 <div class="title">kiểm tra doanh thu theo tháng </div>
                 <div class="body-kiemtra">
                     <select name="" id="">
+                        <option selected disabled>Chọn tháng</option>
                         <option value="1">thang 1</option>
-                        <option value="1">thang 2</option>
-                        <option value="1">thang 3</option>
-                        <option value="1">thang 4</option>
-                        <option value="1">thang 5</option>
-                        <option value="1">thang 6</option>
-                        <option value="1">thang 7</option>
-                        <option value="1">thang 8</option>
-                        <option value="1">thang 9</option>
-                        <option value="1">thang 10</option>
-                        <option value="1">thang 11</option>
-                        <option value="1">thang 12</option>
+                        <option value="2">thang 2</option>
+                        <option value="3">thang 3</option>
+                        <option value="4">thang 4</option>
+                        <option value="5">thang 5</option>
+                        <option value="6">thang 6</option>
+                        <option value="7">thang 7</option>
+                        <option value="8">thang 8</option>
+                        <option value="9">thang 9</option>
+                        <option value="10">thang 10</option>
+                        <option value="11">thang 11</option>
+                        <option value="12">thang 12</option>
                     </select>
-                    <input type="submit" value="kiểm tra">
+                    <a class="btn_kiemtra" href="./revenue/monthly-revenue.php?moth" >kiểm tra</a>
                 </div>
                 <div class="list-ketqua">
                     <div class="tong item">
-                        <span>Tổng doanh thu thang: <span></span></span>
-                        <p>100000000000000</p>
+                        <span style="font-weight: bold;">Tổng Doanh Thu Theo Tháng: <span></span></span>
+                        <p></p> <span style="margin-left:2px;">VND</span>
                     </div>
                     <div class="sanpham item">
                         <span>sản phẩm bán chạy nhất</span>
@@ -948,8 +884,8 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
             </div>
         </div>
         <div class="body-add-category body-kho">
-            <h2 class="title">
-                Tổng đơn đặt hàng
+            <h2 style="color:green;" class="title">
+                Tất cả đơn đặt hàng
             </h2>
             <div class="body-see-order body_1 enty">
                 <div class="menu-date">
@@ -967,82 +903,65 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                         <input type="submit" value="xem">
                     </div>
                 </div>
-                <div class="list-order">
+                <div class="list-order render_list_order">
                     <table>
                         <tr>
                             <th>ngày đặt </th>
                             <th>Tên khách hàng </th>
                             <th>số điện thoại </th>
-                            <th>Mã hàng</th>
-                            <th>tên hàng </th>
-                            <th>số lượng </th>
-                            <th>tổng tiền </th>
-                            <th>mã hóa đơn </th>
-                            <th>Mã vận chuyển</th>
+                            <th>Sản phẩm</th>
+                            <th>Tổng đơn</th>
                             <th>trạng thái</th>
-                            <th>xem chi tiết</th>
+                            <th>Xác nhận Đơn hàng</th>
                         </tr>
-                        <tbody>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
+                        <?php    
+                        $count_index=20;
+                        $index=isset($_GET["page_order"])?$_GET["page_order"]:1;
+                        $start_from = ($index - 1) * $count_index;
+                        $list_order=select_value_all("SELECT * FROM DON_DAT_HANG order by DDH_ID desc LIMIT $start_from, $count_index");
+                        echo '<tbody class="main_body_order_list">';
+                            foreach($list_order as $items){
+                                $sum_order=0;
+                                echo '<tr>';
+                                echo '    <td>'.$items[2].'</td>';
+                                echo '    <td>'.$items[6].'</td>';
+                                echo '    <td>'.$items[4].'</td>';
+                                echo '    <td>';
+                                echo '        <div class="list-product-order">';
+                                $list_order_details=select_value_all("SELECT * FROM CHITIET_DDH WHERE DDH_ID=$items[0]");
+                                foreach($list_order_details as $rows){
+                                    $sum_order+=($rows[3]*$rows[2]);
+                                    echo '            <div class="product-order-items">';
+                                    echo '                <div class="name-product">'.$rows[5].'</div>';
+                                    echo '                <div class="quantity-product"><span>X</span><span>'.$rows[2].'</span></div> ';    
+                                    echo '            </div>';
+                                }
+                                echo '        </div>';
+                                echo '    </td>';
+                                echo '    <td>'.number_format($sum_order).'<span style="margin-left:5px">VND</span></td>';
+                                if($items[7]==NULL){
+                                    echo '    <td class="wait-confirm"><span>Chờ Xác Nhận</span></td>';
+                                    echo '    <td><a href="./order/confirm-order.php?order_id='.$items[0].'" class="btn btn_confirm_order">Xác nhận</a></td>';
+                                }else{
+                                    $status_name=select_value("SELECT TT_TEN FROM TRANGTHAI WHERE TT_ID=$items[7]")["TT_TEN"];
+                                    echo '    <td class="wait-confirm"><span class="confirm true">'.$status_name.'</span></td>';
+                                    echo '    <td><a href="#" disable class="btn confirm">Xác nhận</a></td>';
+                                }
+                                echo '</tr>';
+                            }
+                            ?>
                         </tbody>
                     </table>
+                    <div class="list-btn-paging">
+                        <a href="./order/paging-order.php?page_order=1" class="prev"><ion-icon name="caret-back-outline"></ion-icon></a>
+                        <a href="./order/paging-order.php?page_order=2" class="next"><ion-icon name="caret-forward-outline"></ion-icon></a>
+                    </div>       
                 </div>
             </div>
         </div>
         <div class="body-add-category body-kho">
-            <h2 class="title">
-                Tổng đơn đặt hàng
+            <h2 style="color:red;" class="title">
+                Đơn đặt hàng chưa xác nhận
             </h2>
             <div class="body-see-order body_1 enty">
                 <div class="menu-date">
@@ -1060,76 +979,55 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                         <input type="submit" value="xem">
                     </div>
                 </div>
-                <div class="list-order">
+                <div class="list-order render_list_order">
                     <table>
                         <tr>
                             <th>ngày đặt </th>
                             <th>Tên khách hàng </th>
                             <th>số điện thoại </th>
-                            <th>Mã hàng</th>
-                            <th>tên hàng </th>
-                            <th>số lượng </th>
-                            <th>tổng tiền </th>
-                            <th>mã hóa đơn </th>
-                            <th>Mã vận chuyển</th>
+                            <th>Sản phẩm</th>
+                            <th>Tổng đơn</th>
                             <th>trạng thái</th>
-                            <th>xem chi tiết</th>
+                            <th>Xác nhận Đơn hàng</th>
                         </tr>
-                        <tbody>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
+                        <?php    
+                        $count_index=20;
+                        $index=isset($_GET["page_order"])?$_GET["page_order"]:1;
+                        $start_from = ($index - 1) * $count_index;
+                        $list_order=select_value_all("SELECT * FROM DON_DAT_HANG order by DDH_ID desc LIMIT $start_from, $count_index");
+                        echo '<tbody class="main_body_order_list">';
+                            foreach($list_order as $items){
+                                if($items[7]==NULL){
+                                $sum_order=0;
+                                echo '<tr>';
+                                echo '    <td>'.$items[2].'</td>';
+                                echo '    <td>'.$items[6].'</td>';
+                                echo '    <td>'.$items[4].'</td>';
+                                echo '    <td>';
+                                echo '        <div class="list-product-order">';
+                                $list_order_details=select_value_all("SELECT * FROM CHITIET_DDH WHERE DDH_ID=$items[0]");
+                                foreach($list_order_details as $rows){
+                                    $sum_order+=($rows[3]*$rows[2]);
+                                    echo '            <div class="product-order-items">';
+                                    echo '                <div class="name-product">'.$rows[5].'</div>';
+                                    echo '                <div class="quantity-product"><span>X</span><span>'.$rows[2].'</span></div> ';    
+                                    echo '            </div>';
+                                }
+                                echo '        </div>';
+                                echo '    </td>';
+                                echo '    <td>'.number_format($sum_order).'<span style="margin-left:5px">VND</span></td>';
+                                    echo '    <td class="wait-confirm"><span>Chờ Xác Nhận</span></td>';
+                                    echo '    <td><a href="./order/confirm-order.php?order_id='.$items[0].'" class="btn btn_confirm_order">Xác nhận</a></td>';
+                                }
+                                echo '</tr>';
+                            }
+                            ?>
                         </tbody>
                     </table>
+                    <div class="list-btn-paging">
+                        <a href="./order/paging-order.php?page_order=1" class="prev"><ion-icon name="caret-back-outline"></ion-icon></a>
+                        <a href="./order/paging-order.php?page_order=2" class="next"><ion-icon name="caret-forward-outline"></ion-icon></a>
+                    </div>       
                 </div>
             </div>
         </div>
@@ -1279,4 +1177,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
     </div>
 </body>
 <script src="./javascript/admin.js"></script>
+<script src="./javascript/confirm-order.js"></script>
+<script src="./javascript/revenue.js"></script>
+<script src="./order/js/paging-order.js"></script>
 </html>

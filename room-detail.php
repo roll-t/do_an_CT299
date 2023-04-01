@@ -3,7 +3,7 @@
   <?php include './head.php'?>
   <link rel="stylesheet" href="./assets/css/room-detail.css" />
   <link rel="stylesheet" href="./assets/css/slide-2-banner.css">
- <link rel="stylesheet" href="./assets/css/room.css">
+  <link rel="stylesheet" href="./assets/css/room.css">
   <body>
     <div class="wrapper">
       <header class="header header-banner">
@@ -72,15 +72,6 @@
           </ul>
         </div>
       </div>
-    </div>
-
-       <div class="body-find-store">
-            <div class="content">
-                <h2 class="title" data-text="Xem,Chạm Và Cảm Nhận">Xem,Chạm Và Cảm Nhận</h2>
-                <button class="btn-find"><a href="#">Tìm Cửa Hàng</a><ion-icon name="chevron-forward-outline"></ion-icon></button>
-            </div>
-        </div>
-        <?php include './footer.php' ?>
     </div>
     <a href="#top" class="go-to-top"><ion-icon name="chevron-up-outline"></ion-icon></a>
   </body>

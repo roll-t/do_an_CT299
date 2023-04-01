@@ -665,9 +665,23 @@ header  .right ion-icon{
     flex-direction: column-reverse;
     z-index: 1;
 }
+.body-thongke .bieudothongke .thuocdo .sodo{
+    display: flex;
+    font-size: 9px;
+}
 .body-thongke .bieudothongke .thuocdo .item{
     display:flex;
     align-items: center;
+}
+ .item .muc{
+    position: relative;
+}
+ .item .muc .items_muc{
+    position:absolute;
+    bottom:100%;
+    font-size: 9px;
+    left:50%;
+    transform: translateX(-50%);
 }
 .body-thongke .bieudothongke .thuocdo .item .mucdo{
     height:.5px;
@@ -699,13 +713,16 @@ header  .right ion-icon{
     flex-direction: column;
     align-items: center;
 }
+.body-thongke .body-bieudo .thang{
+    font-size: 12px;
+    
+}
 .body-thongke .body-bieudo .item:nth-child(2n) .muc{
     background: #DC3545;
 }
 .body-thongke .body-bieudo .item .muc{
     width:30px;
     cursor: pointer;
-    height:calc(20px * var(--i));
     background-color: #0D6EFD;
 
 }
@@ -938,14 +955,21 @@ header  .right ion-icon{
     border: 1px solid #000;
 }
 .body-kho .list-order .btn{
-    width:100%;
     padding:5px 10px;
     background: #000;
+    cursor: pointer;
     color:white;
+}
+.body-kho .list-order .btn.confirm{
+    opacity: .3;
+    cursor:no-drop;
 }
 .body-kho .list-order td {
     padding-inline:5px;
     padding-block:5px;
+}
+.body-kho .list-order td:last-child{
+    text-align: center;
 }
 .body-detail{
     background:white;
@@ -1094,4 +1118,49 @@ header  .right ion-icon{
     text-align: right;
     flex:1;
     margin-right:3%;
+}
+
+
+
+.list-product-order {
+    display:flex;
+    flex-direction: column;
+}
+.list-product-order .product-order-items{
+    max-width: 250px;
+    gap:20px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.194);
+    display:flex;
+    margin-top: 5px;
+}
+
+.wait-confirm span{
+    color:red;
+}
+.wait-confirm .confirm.true{
+    color:#27ae60;
+}
+
+.list-btn-paging{
+    display:flex;
+    justify-content: end;
+    padding-right:7%;
+    gap:20px;
+    margin-top: 30px;
+}
+.list-btn-paging a{
+    padding:10px;
+    font-size: 18px;
+    border-radius:10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.237);
+}
+.btn_kiemtra{
+    display:flex;
+    align-items: center;
+    color:white;
+    background:black;
+    padding:5px 10px;
 }

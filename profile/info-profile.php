@@ -2,7 +2,7 @@
 <?php 
   include './connect.php';
   if(isset($_COOKIE["account_homedesign"])){
-    $link='./profile.php';
+    $link='./profile.php?all_order';
     $name_account=explode(",",$_COOKIE["account_homedesign"])[1];
     $id_client=explode(",",$_COOKIE["account_homedesign"])[0];
     $sql="SELECT * FROM KHACHHANG WHERE KH_ID=$id_client";

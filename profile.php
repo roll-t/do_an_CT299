@@ -160,15 +160,24 @@ include './head.php' ;
                 <div class="items-right-profile order  active">
                     <div class="header-right">
                         <ul class="menu">
-                            <li class="menu-item"><a href="#">Tất cả</a></li>
-                            <li class="menu-item"><a href="#">Chờ thanh toán</a></li>
-                            <li class="menu-item"><a href="#">Vận chuyển</a></li>
+                            <li class="menu-item"><a href="profile.php?all_order">Tất cả</a></li>
+                            <li class="menu-item"><a href="profile.php?confirm_order">Chờ Xác Nhận</a></li>
+                            <li class="menu-item"><a href="profile.php?delivery">Vận chuyển</a></li>
                             <li class="menu-item"><a href="#">Đang giao</a></li>
                             <li class="menu-item"><a href="#">Hoàng thành</a></li>
                         </ul>
                         
                     </div>
                     <div class="container-right">
+                         <?php
+                         if(isset($_GET["all_order"])){
+                            include './order/all-order.php';
+                         }else if(isset($_GET["confirm_order"])){
+                            include './order/confirm-order.php';
+                         }else if(isset($_GET["delivery"])){
+                            include './order/delivery.php';
+                         }
+                         ?>
                     </div>
                 </div>
                 

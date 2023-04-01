@@ -69,8 +69,8 @@ $result_all = $result->fetch_all();
                             <div class="btn see-more-btn">More info</div>
                         </div>
                     </div>
-                    <div class="right-banner">
-                        <div class="img-product">
+                    <div class="right-banner to_post_details">
+                        <div  class="img-product">
                             <img src="./images/slider/slider3.png" alt="">
                         </div>
                     </div>
@@ -403,5 +403,6 @@ $result_all = $result->fetch_all();
 <script src="./assets/javascript/show-left-meu.js"></script>
 <script src="./assets/javascript/cart.js"></script>
 <script src="./assets/javascript/current-menu-items.js"></script>
+<script src="./assets/javascript/to-post-detail.js"></script>
 
 </html>
