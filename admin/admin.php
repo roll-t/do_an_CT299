@@ -9,12 +9,9 @@ $result_all = select_value_all("SELECT * FROM `nhom_danhmuc` where 1 ");
 $result_all_2 = select_value_all("SELECT * FROM `danhmuc` where 1 ");
 
 $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +24,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="shortcut icon" href="../logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/product-details.css">
-
+    <link rel="stylesheet" href="../assets/css/top-selling-product.css">
 </head>
 
 <body>
@@ -438,11 +435,11 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
             <div class="headline">
                 <div class="item">
                     <div class="top-items">
-                        <ion-icon name="eye-outline"></ion-icon>
-                        <span>5555</span>
+                    <ion-icon name="cash-outline"></ion-icon>
+                        <span><?php include './revenue/total_revenue.php'?> <o>VND</o></span>
                     </div>
                     <div class="bottom-items">
-                        Ghé thăm
+                        Tổng doanh thu
                     </div>
                 </div>
                 <div class="item">
@@ -519,10 +516,17 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                         <p></p> <span style="margin-left:2px;">VND</span>
                     </div>
                     <div class="sanpham item">
-                        <span>sản phẩm bán chạy nhất</span>
-                        <p>ms4</p>
+                        <a class="month_selling" href="./revenue/selling-product.php?month="></a>
+                        <div class="selling_revenue"></div>
                     </div>
                 </div>
+            </div>
+            <div class="top-selling-product">
+            <div id="new-arrival" class="body-2">
+                <h2 class="title" style="padding-block:20px">Top sản phẩm bán chạy nhất</h2>
+                <ul class="list-product">
+                    <?php include './revenue/top-selling-product.php'?>
+                </ul>
             </div>
         </div>
         <div class="body-add-category body-order">

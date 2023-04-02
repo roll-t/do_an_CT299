@@ -1,0 +1,153 @@
+.body-2 .list-product{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row-gap: 60px;
+    grid-column-gap:3%;
+}
+.body-2 .list-product .product-items{
+    box-shadow: 0 0 3px rgba(37, 37, 37, 0.105);
+    border:1px solid rgba(0, 0, 0, 0.050);
+    border-radius:5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-transform:capitalize;
+}
+.body-2 .list-product .product-items:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.147);
+    border:1px solid rgba(0, 0, 0, 0.059);
+}
+.body-2 .list-product .product-items img {
+    position: relative;
+    z-index: 100;
+    transition: .7s;
+}
+.body-2 .list-product .product-items:hover img{
+    transform: scale(1.2);
+}
+.body-2 .list-product .product-items .top-product{
+    height:300px;
+    position: relative;
+    background:white;
+    overflow: hidden;
+    display:flex;
+    align-items: center;
+}
+.body-2 .list-product .product-items .top-product .img-zoom{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+.body-2 .list-product .product-items .top-product:hover .img-zoom{
+    opacity: 1;
+}
+.body-2 .list-product .product-items .top-product:hover .add-cart{
+    bottom:0;
+    opacity: 1;
+}
+.body-2 .list-product .product-items .top-product .add-cart{
+    transition: .7s;
+    position: absolute;
+    bottom:-35px;
+    opacity: 0;
+    left:0;
+    background:var(--line-cart);
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+    padding:8px 7%;
+    color:white;
+    z-index: 100;
+}
+.body-2 .list-product .product-items .top-product .add-cart .left-add,.right-add{
+    display: flex;
+    z-index: 100;
+    gap:10px;
+}
+.body-2 .list-product .product-items .top-product .add-cart .left-add:hover{
+    color:#dfe6e9;
+}
+.body-2 .list-product .product-items .top-product .add-cart .left-add:active{
+    opacity: .5;
+}
+.body-2 .list-product .product-items .top-product .texture{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:#5F5B57;
+    width:0;
+    height:0;
+    z-index:1;
+    opacity: .1;
+    transition: .7s;
+}
+.body-2 .list-product .product-items .top-product:hover .texture{
+    width:100%;
+    height:100%;
+}
+.body-2 .list-product .product-items .top-product .sale-ticker{
+    position: absolute;
+    top:4%;
+    right:0;
+    padding: 5px 15px;
+    background:#47D93C;
+    font-weight: bold;
+    z-index: 100;
+    color:white;
+}
+.body-2 .list-product .product-items .product-price{
+    display:flex;
+}
+.body-2 .list-product .product-items:hover .name-product{
+    transition: .4s;
+    color:var(--main-color);
+}
+.body-2 .list-product .product-items .product-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:15px;
+    border-top:3px solid var(--main-color);
+    padding-block:30px;
+    background:var(--bg-body-6);
+    height:auto;
+    flex:1;
+}
+.body-2 .list-product .product-items .product-content .name-product{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    padding-inline:3%;
+}
+.body-2 .button-see-more{
+    padding-block:40px;
+    display:flex;
+    justify-content: center;
+}
+.body-2 .button-see-more a{
+    padding:5px 2%;
+    color:var(--main-color);
+    border-radius: 10rem;
+    border:1px solid var(--main-color);
+}
+.body-2 .button-see-more a:hover{
+    color:white;
+    background: var(--main-color);
+}
+
+.info-top-selling{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    padding:5px 10px;
+}

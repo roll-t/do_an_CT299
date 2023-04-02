@@ -145,7 +145,7 @@
                         echo '                        </div>';
                         echo '                        <div class="product-content">';
                         echo '                            <h3 class="name-product">'.$items[3].'</h3>';
-                        echo '                            <div class="product-price"><p>'.number_format($items[4]).'</p><span>đ</span></div>';
+                        echo '                            <div class="product-price"><p style="padding-right:3px;">'.number_format($items[4]).'</p><span>VND</span></div>';
                         echo '                        </div>';
                         echo '                    </li>';
                                             }
