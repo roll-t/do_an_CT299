@@ -5,6 +5,10 @@ include './profile/info-profile.php';
 $result_all=select_value_all("SELECT * FROM `nhom_danhmuc` where 1 "); 
 $result_room_2=select_value_all("SELECT * FROM `phong` where 1 ");
 $quantity_cart=0;
+$id_client_1=isset($_COOKIE["account_homedesign"])?explode(",",$_COOKIE["account_homedesign"])[0]:false;
+if(!isset($_GET["cart_homedesign_".$id_client_1.""])){
+    include './cart/create-cart.php';
+}
 ?>
     <div class="headline">
                 <div class="left-headline">

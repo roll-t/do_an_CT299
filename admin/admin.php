@@ -76,7 +76,6 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                     <div class="category">
                         <div class="category-items">Tất cả đơn</div>
                         <div class="category-items">Đơn chưa xác nhận</div>
-                        <div class="category-items">Đơn đặt đã hủy </div>
                     </div>
                 </li>
                 <li class="menu-items menu-category">
@@ -108,12 +107,12 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 <li class="menu-items material-and-color">
                     <p>Màu sắc, Chất liệu</p>
                     <div class="category">
-                        <div class="category-items">Cập nhật màu sắc</div>
                         <div class="category-items">Cập nhật chất liệu</div>
+                        <div class="category-items">Cập nhật màu sắc</div>
                     </div>
                 </li>
             </ul>
-        </div>
+        </div>  
         <div class="right-side">
             <div class="body-add-category">
                 <form action="./add_category.php" method="post" class="group-input">
@@ -431,7 +430,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 </div>
             </from>
         </div>
-        <div class="body-add-category body-thongke  active">
+        <div class="body-add-category body-thongke active">
             <div class="headline">
                 <div class="item">
                     <div class="top-items">
@@ -529,7 +528,8 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 </ul>
             </div>
         </div>
-        <div class="body-add-category body-order">
+      </div>
+        <div class="body-add-category body-order ">
             <h3 class="title">Kiểm tra nhập kho</h3>
             <ul class="menu">
                 <div class="items">Xem tất cả</div>
@@ -1035,99 +1035,7 @@ $result_all_3 = select_value_all("SELECT * FROM `phong` where 1 ");
                 </div>
             </div>
         </div>
-        <div class="body-add-category body-kho">
-            <h2 class="title">
-                Tổng đơn đặt hàng
-            </h2>
-            <div class="body-see-order body_1 enty">
-                <div class="menu-date">
-                    <div class="left">
-                        <div class="group-input">
-                            <label for="to">Từ ngày: </label>
-                            <input name="to" type="date">
-                        </div>
-                        <div class="group-input">
-                            <label for="from">Đến ngày: </label>
-                            <input name="from" type="date">
-                        </div>
-                    </div>
-                    <div class="right-menu">
-                        <input type="submit" value="xem">
-                    </div>
-                </div>
-                <div class="list-order">
-                    <table>
-                        <tr>
-                            <th>ngày đặt </th>
-                            <th>Tên khách hàng </th>
-                            <th>số điện thoại </th>
-                            <th>Mã hàng</th>
-                            <th>tên hàng </th>
-                            <th>số lượng </th>
-                            <th>tổng tiền </th>
-                            <th>mã hóa đơn </th>
-                            <th>Mã vận chuyển</th>
-                            <th>trạng thái</th>
-                            <th>xem chi tiết</th>
-                        </tr>
-                        <tbody>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                            <tr>
-                                <td>01/01/2023</td>
-                                <td>pham pham phuoc truong</td>
-                                <td>00912812</td>
-                                <td>B123</td>
-                                <td>ghe ngoai troi</td>
-                                <td>4</td>
-                                <td>3000000vnd</td>
-                                <td>MK2000</td>
-                                <td>VT300</td>
-                                <td>đã giao</td>
-                                <td><input class="btn" type="submit" value="xem thêm"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    
         <div class="body-add-category body-material material">
             <h2 class="title"> 
                 Chất Liệu

@@ -29,14 +29,15 @@ btn_show_category.forEach((items,index)=>{
                 let btn_filter_2=document.querySelectorAll(".btn-filter")[1]
                 btn_filter.style.opacity="0"
                 btn_filter_2.style.opacity="0"
-                detele.disabled=true;
+                // detele.disabled=true;
 
+                select&&
                 select.addEventListener("change",e=>{
                     const value_items=()=>(select.value)
                     console.log (value_items())
                     btn_filter.href=`filter.php?id_menu=${value_items()}`
                     btn_filter_2.href=`filter.php?id_menu=${value_items()}`
-                    detele.disabled=false; 
+                    // detele.disabled=false; 
                     get_caterogy()
                     
                 })
@@ -174,6 +175,7 @@ btn_show_kho.forEach((items,index)=>{
     })
 })
 const btn_show_material=document.querySelectorAll(".material-and-color .category-items")
+console.log(btn_show_material)
 const body_material=document.querySelectorAll(".body-material")
 btn_show_material.forEach((items,index)=>{
     items.addEventListener("click",e=>{

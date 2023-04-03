@@ -30,7 +30,6 @@ if(isset($_GET["confirm_password"])){
         $cookie_name="account_homedesign";
         $cookie_value=[$password["KH_ID"],$password["KH__TEN"]];
         setcookie($cookie_name, implode(",",$cookie_value), time() + (86400 * 30), "/");
-        include '../cart/create-cart.php';
         alert("Đăng Nhập Thành công");
         echo'<input type="hidden" class="login_sucess" />';
     }else{
