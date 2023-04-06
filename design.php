@@ -68,7 +68,7 @@
                         <img src="./images/room/living-room/ban-an-peak-hien-dai-van-may-ceramic-22.png" alt="">
                     </div>
                     <div class="content-items">
-                        <h3 class="title">Kinh nghiệm chọn bàn ăn chất lượng cho gia đình</h3>
+                        <h3 class="title">KINH NGHIỆM CHỌN BÀN ĂN CHẤT LƯỢNG CHO GIA ĐÌNH</h3>
                         <p class="des">Nhà là nơi để về còn phòng ăn là nơi để các thành viên quây quần cùng nhau[..]
                         </p>
                     </div>
