@@ -1,6 +1,5 @@
 <?php
 if(isset($_COOKIE["account_homedesign"])){
-    
     $info_product=[$_GET["id_product"],$_GET["img_product"],$_GET["name_product"],$_GET["price_product"]];
     $id_client=explode(",",$_COOKIE["account_homedesign"])[0];
     $name_cart="cart_homedesign_".$id_client."";

@@ -1,5 +1,3 @@
-
-
 .banner-design{
     background-image:linear-gradient(90deg,rgb(0, 0, 0),transparent), url("../header-design/background.png");
     border: 1px solid #000;
@@ -7,6 +5,10 @@
     background-position:20%;
     padding-block:150px;
     position: relative;
+}
+
+.menu-items-product.menu-items-product:last-of-type::before{
+ position: absolute;
 }
 .banner-design .address-design .title-address{
     position: absolute;

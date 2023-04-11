@@ -48,17 +48,33 @@ function show_checkout(){
             a.click()
         })
 }
+
 function hidden_checkout(){
     const btn_checkout=document.querySelector(".checkout")
     btn_checkout.classList.remove("active")
 }
 
 function checkout(){
-    const list_cart=document.querySelectorAll(".list-product-cart .product-cart-items")
-    if(list_cart.length>0){
-        show_checkout();
-    }
+    let count_check=0;
+    const list_cart=document.querySelectorAll(".list-product-cart .product-cart-items");
+    list_cart.forEach(items=>{
+        const check=items.querySelector('.check-confirm')
+        check.addEventListener("click",e=>{
+            if(check.checked==true){
+                count_check++;
+                if(count_check>0){
+                    show_checkout()
+                }
+            }else{
+                count_check--;
+                if(count_check==0){
+                    hidden_checkout();
+                }
+            }
+        })
+    })
 }
+
 checkout();
 
 function add_items_cart(){
@@ -66,7 +82,6 @@ function add_items_cart(){
     list_add.forEach(items=>{
         items.addEventListener("click",e=>{
             checkout();
-                show_checkout();
         })
     })
 }

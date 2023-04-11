@@ -55,47 +55,28 @@
                         <div class="title-filter">
                             Giá
                         </div>
-                        <div class="input-filter">
-                            <p>Chọn mức giá</p><ion-icon name="chevron-down-outline"></ion-icon>
-                        </div>
-                        <div class="list-select">
-                          <div class="select-items">
-                            Theo mức độ phổ biến
-                          </div>  
-                          <div class="select-items">
-                            Mới nhất
-                          </div>  
-                          <div class="select-items">
-                            Theo Giá: từ cao đến thấp
-                          </div>  
-                          <div class="select-items">
-                            Theo Giá: từ thấp đến cao
-                          </div>  
-                        </div>
+                        <select class="filter_price" name=""  id="">
+                          <option value="" selected disabled>Chọn theo giá</option>
+                          <option value="1">Theo độ phổ biến</option>
+                          <option value="2">Theo Giá: từ cao đến thấp</option>
+                          <option value="3">Theo Giá: từ thấp đến cao</option>
+                        </select>
                     </div>
                     <div class="filter-material filter-items">
                         <div class="title-filter">
-                            Chất Liệu
+                            Kích thước
                         </div>
-                        <div class="input-filter">
-                            <p>Chọn chất liệu</p><ion-icon name="chevron-down-outline"></ion-icon>
-                        </div>
-                        <div class="list-select">
-                          <div class="select-items">
-                            Chất Liệu Gỗ
-                          </div>  
-                          <div class="select-items">
-                            Chất Liệu Kim Loại
-                          </div>  
-                          <div class="select-items">
-                            Chất Liệu Đá
-                          </div>   
-                        </div>
+                        <select name=""  id="">
+                        <option value="" selected disabled>Chọn theo kích thước</option>
+                          <option value="1">Nhỏ</option>
+                          <option value="2">Vừa</option>
+                          <option value="3">Lớn</option>
+                        </select>
                     </div>
 
-                    <button class="confirm-filter">
+                    <a href="#" class="confirm-filter confirm_filter">
                         Áp Dụng
-                    </button>
+                    </a>
                 </div>
                 <ul class="list-product main-list-product">
                     <?php
