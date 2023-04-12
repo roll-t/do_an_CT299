@@ -241,52 +241,52 @@ $result_all = $result->fetch_all();
                 <ul class="list-blog">
                     <li class="blog-items">
                         <div class="top-blog">
-                            <img src="./images/blog/b3.jpg" alt="">
+                            <img src="./images/blog/b1.png" alt="">
                             <div class="texture"></div>
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                Why Brands are Looking at Local Language
+                            Khám phá phong cách indochine độc đáo và chi tiết nhất
                             </div>
                             <div class="date-blog">
-                                By Robert Norby / 18th March 2018
+                                By Admin / 08-04-2023
                             </div>
                             <p class="text-blog">
-                                Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur Aut Odit Aut Fugit, Sed Quia Consequuntur Magni Dolores Eos Qui Ratione Voluptatem Sequi Nesciunt....
+                            Indochine là phong cách gì? Sự kết hợp giữa phong cách Việt Nam và Pháp được gọi là indochine. Phong cách indochine là di...
                             </p>
                         </div>
                     </li>
                     <li class="blog-items">
                         <div class="top-blog">
-                            <img src="./images/blog/b2.jpg" alt="">
+                            <img src="./images/blog/b2.png" alt="">
                             <div class="texture"></div>
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                Why Brands are Looking at Local Language
+                               Chiêm ngưỡng 50 mẫu kệ trang trí độc đáo không thể rời mắt
                             </div>
                             <div class="date-blog">
-                                By Robert Norby / 18th March 2018
+                                By Admin / 13-01-2023
                             </div>
                             <p class="text-blog">
-                                Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur Aut Odit Aut Fugit, Sed Quia Consequuntur Magni Dolores Eos Qui Ratione Voluptatem Sequi Nesciunt....
+                            Kệ trang trí là gì? Trang trí bằng kệ là một cách tuyệt vời để mang lại cá tính cho ngôi nhà. Cho dù...
                             </p>
                         </div>
                     </li>
                     <li class="blog-items">
                         <div class="top-blog">
-                            <img src="./images/blog/b1.jpg" alt="">
+                            <img src="./images/blog/b3.png" alt="">
                             <div class="texture"></div>
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                Why Brands are Looking at Local Language
+                            Phong cách Zen là gì? khám phá thiết kế nội thất Zen Nhật Bản
                             </div>
                             <div class="date-blog">
-                                By Robert Norby / 18th March 2018
+                                By Admin / 18-02-2023
                             </div>
                             <p class="text-blog">
-                                Nemo Enim Ipsam Voluptatem Quia Voluptas Sit Aspernatur Aut Odit Aut Fugit, Sed Quia Consequuntur Magni Dolores Eos Qui Ratione Voluptatem Sequi Nesciunt....
+                            Zen là phong cách gì? Zen (Thiền) có một lịch sử lâu đời và có nhiều cách diễn giải. Về cơ bản, Zen là...
                             </p>
                         </div>
                     </li>
